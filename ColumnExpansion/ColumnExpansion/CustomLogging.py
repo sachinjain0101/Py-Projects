@@ -2,12 +2,14 @@ import logging
 
 class CustomLogging(object):
     """CustomeLogging handles logging of all modules of this project"""
+    version = 'v0.1'
 
     def __new__(cls):
         #print "CustomLogging.__new__ called"
         return super(CustomLogging, cls).__new__(cls)
 
     def __init__(self):
+        print __name__
         #print "CustomLogging.__init__ called"
         pass
         
