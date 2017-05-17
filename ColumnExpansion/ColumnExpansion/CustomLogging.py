@@ -3,7 +3,12 @@ import logging
 class CustomLogging(object):
     """CustomeLogging handles logging of all modules of this project"""
 
+    def __new__(cls):
+        #print "CustomLogging.__new__ called"
+        return super(CustomLogging, cls).__new__(cls)
+
     def __init__(self):
+        #print "CustomLogging.__init__ called"
         pass
         
     def log(self,msg, path='colexp-baselog.log', multipleLocs=True):
