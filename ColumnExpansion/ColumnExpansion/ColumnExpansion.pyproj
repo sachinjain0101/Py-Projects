@@ -23,10 +23,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ColumnExpansion.py" />
-    <Compile Include="CustomLogging.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Hello.py">
+    <Compile Include="vars.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -34,7 +31,14 @@
     <InterpreterReference Include="Global|PythonCore|2.7" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="drop_create_constraints_indexes.sql" />
+    <Content Include="sql\#InputTables.sql" />
+    <Content Include="data\input-data.xlsx" />
+    <Content Include="sql\drop_create_constraints_indexes.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="data\" />
+    <Folder Include="log\" />
+    <Folder Include="sql\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
