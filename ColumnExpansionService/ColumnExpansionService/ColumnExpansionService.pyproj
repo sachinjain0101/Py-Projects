@@ -2,16 +2,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>635886c7-f794-44a6-8a1d-749a7a4f1cbf</ProjectGuid>
+    <ProjectGuid>233fb154-5d19-4a78-aafe-4f7b7edc5788</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>ColumnExpansion.py</StartupFile>
+    <StartupFile>colexp\core.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>ColumnExpansion</Name>
-    <RootNamespace>ColumnExpansion</RootNamespace>
-    <InterpreterId>Global|PythonCore|2.7</InterpreterId>
+    <Name>ColumnExpansionService</Name>
+    <RootNamespace>ColumnExpansionService</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,25 +21,29 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ColumnExpansion.py" />
-    <Compile Include="vars.py">
+    <Compile Include="colexp\applog.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="colexp\core.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="colexp\vars.py" />
+    <Compile Include="colexp\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="setup.py" />
   </ItemGroup>
   <ItemGroup>
-    <InterpreterReference Include="Global|PythonCore|2.7" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="input-data.xlsx" />
+    <Content Include="LICENSE" />
     <Content Include="requirements.txt" />
-    <Content Include="sql\#InputTables.sql" />
-    <Content Include="data\input-data.xlsx" />
-    <Content Include="sql\drop_create_constraints_indexes.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="data\" />
+    <Folder Include="colexp\" />
     <Folder Include="log\" />
-    <Folder Include="sql\" />
+    <Folder Include="colexp\svc\" />
+    <Folder Include="input-data\" />
+    <Folder Include="log\" />
+    <Folder Include="tests\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

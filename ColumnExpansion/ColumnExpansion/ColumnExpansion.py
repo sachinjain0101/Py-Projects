@@ -1,25 +1,24 @@
-from openpyxl import workbook
+from openpyxl import Workbook
+from vars import Vars
+import openpyxl
 import threading
 import os
 import pyodbc
 import sys
 import time
 import logging
-import vars
 
 # setting up logger
-formatStr = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-dateFmtStr = "%Y%m%d-%H%M%S"
 
-logFile = os.path.join(os.getcwd(),"log\z-columnExpansion.log")
+logFile = os.path.join(os.getcwd(),Vars.logFile)
 logging.basicConfig(level=logging.NOTSET
                     , filename=logFile
-                    , format=formatStr
-                    , datefmt=dateFmtStr
+                    , format=Vars.formatStr
+                    , datefmt=Vars.dateFmtStr
                     , filemode='a')
 console = logging.StreamHandler()
 console.setLevel(logging.INFO)
-formatter = logging.Formatter(formatStr, datefmt=dateFmtStr)
+formatter = logging.Formatter(Vars.formatStr, datefmt=Vars.dateFmtStr)
 console.setFormatter(formatter)
 logging.getLogger('').addHandler(console)
 
@@ -28,7 +27,7 @@ def seperator():
     
 # simple log test
 seperator()
-logging.info("starting... " + __name__ + " " + vars.vars.version)
+logging.info("starting... " + __name__ + " " + Vars.version)
 seperator()
 
 def myfunc(i):
@@ -40,13 +39,13 @@ for i in range(10):
     t = threading.Thread(target=myfunc, args=(i,))
     t.start()
 
-#Variables
-connStr = "DRIVER={{ODBC Driver 11 for SQL Server}}; SERVER={0}; DATABASE={1}; Trusted_Connection=yes;"
 
-wb = workbook()
-
-
-
+wb = Workbook()
+wb = openpyxl.load_workbook(filename="input-data.xlsx")
+ws = wb["data"]
+for row in ws.rows:
+    for cell in row:
+        logging.info(cell.value)
 
 #Building database connection
 server = "L-9560-0101"
@@ -57,7 +56,7 @@ if len(args) > 1:
     server = sys.argv[1]
     db = sys.argv[2]
 
-connStr = connStr.format(server,db)
+connStr = Vars.connStr.format(server,db)
 logging.info("Connection String = " + connStr)
 
 #Establishing database connection
@@ -70,11 +69,11 @@ logging.info(fileName)
 
 print(os.listdir(os.getcwd()))
 
-fh = open(fileName,"r")
+#fh = open(fileName,"r")
 
 #for line in fh.readlines():
 #    print line
-fh.close()
+#fh.close()
 
 
 cursor = conn.cursor() 
