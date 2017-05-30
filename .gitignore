@@ -260,3 +260,5 @@ paket-files/
 __pycache__/
 *.pyc
 /FlaskWebProject1
+/PyPlay/PyPlay/out
+/PyPlay/PyPlay/log
