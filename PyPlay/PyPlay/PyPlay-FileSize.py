@@ -44,20 +44,15 @@ logger = getAppLogger(__name__)
 logger.info('START')
 
 outdir=os.path.join(os.getcwd(),Vars.OUT_DIR)
-if os.path.isdir(outdir):
-    shutil.rmtree(outdir)
+if not os.path.exists(outdir):
+    outdir = os.getcwd()
+    
+files=os.listdir(outdir)
+logger.info("Files more than 10KB")
+for f in files:
+    f = os.path.join(outdir,f)
+    if int(os.path.getsize(f)) > 10000:
+        logger.info(f)
 
-os.mkdir(outdir,0777)
-
-count=0
-while count<20:
-    fl=os.path.join(outdir,str(count)+".sql")
-    f=open(fl,'a')
-    i=0
-    while i<= count:
-        f.write('--'+str(count)*i*100+'\n')
-        i+=1
-    f.close()
-    count+=1
 
 logger.info('END')

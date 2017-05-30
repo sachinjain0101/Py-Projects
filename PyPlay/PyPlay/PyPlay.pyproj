@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>48c974b1-e746-4f94-a4b9-db846ea34927</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>PyPlay-File.py</StartupFile>
+    <StartupFile>PyPlay-FileSize.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -26,6 +26,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="PyPlay-File.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PyPlay-FileSize.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
