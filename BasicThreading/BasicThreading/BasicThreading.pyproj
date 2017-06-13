@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>cb53f951-66e1-417c-a195-98fef61683aa</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>BasicThreading.py</StartupFile>
+    <StartupFile>T3.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,7 +21,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="BasicThreading.py" />
+    <Compile Include="T1.py" />
+    <Compile Include="T2.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="T3.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
