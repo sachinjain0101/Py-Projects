@@ -2,15 +2,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>cb53f951-66e1-417c-a195-98fef61683aa</ProjectGuid>
+    <ProjectGuid>4966ac4c-f3f9-4590-8114-331f5e8c6331</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>T4.py</StartupFile>
+    <StartupFile>PyMail.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>BasicThreading</Name>
-    <RootNamespace>BasicThreading</RootNamespace>
+    <Name>PyMail</Name>
+    <RootNamespace>PyMail</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,14 +21,8 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="T1.py" />
-    <Compile Include="T2.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="T3.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="T4.py">
+    <Compile Include="PyMail.py" />
+    <Compile Include="Vars.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
