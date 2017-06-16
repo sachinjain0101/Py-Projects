@@ -12,6 +12,35 @@ class Vars(object):
     LOG_FILE='z-columnExpansion.log'
     OUT_DIR='out'
     INPUT_DATA=''
+
+    EMAIL_FROM='sachin.jain@peoplenet.com'
+    EMAIL_TO='sachinjain.0101@gmail.com'
+    SMTP_ADDR='smtp.office365.com:587'
+    SMTP_USER='sachin.jain@peoplenet.com'
+    SMTP_PWD=''
+    MESSAGE = '\r\n'.join(['From: {0}',
+              'To: {1}',
+              'MIME-Version: 1.0',
+              'Content-type: text/html',
+              'Subject: Column Expiration Report: {2}',
+              '',
+              '{3}'])
+
+    HTML_TMPL_STR="""
+                  <!DOCTYPE html>
+                  <html>
+                  <body>
+                  <table border="1" cellpadding="5" cellspacing="5">
+                  <col width="300">
+                  <col width="300">
+                  <th>Table Name</th>
+                  <th>Days to Expire</th>
+                  {0}
+                  </table>  
+                  </body>
+                  </html>
+                  """
+
     def __new__(cls):
         return super(vars, cls).__new__()
 

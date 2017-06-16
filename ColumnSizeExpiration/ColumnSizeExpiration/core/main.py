@@ -1,5 +1,6 @@
 from core import Vars
 from core import getAppLogger
+from collections import OrderedDict
 
 from sklearn import datasets, linear_model
 import sqlalchemy
@@ -55,6 +56,15 @@ class ColSizeExp(object):
         for k in out:
             lst.append('<tr> <td>'+k+'</td> <td>'+str(out.get(k))+'</td> </tr>')
         return lst
+
+    def getHTMLOutput(self):
+        out = self.calcLinReg()
+        outstr=''
+        for k in OrderedDict(sorted(out.items(), key=lambda t: t[1])):
+            outstr += '<tr> <td>'+k+'</td> <td>'+str(int(out.get(k)))+'</td> </tr>'
+
+        return Vars.HTML_TMPL_STR.format(outstr)
+
 
     def calcLinReg(self):
         out = dict()
