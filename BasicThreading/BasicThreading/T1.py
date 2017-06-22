@@ -18,7 +18,7 @@ import urllib2
 #    t.start()
 
 def get_responses():
-    urls = ['https://www.google.com', 'https://www.ebay.com', 'https://www.alibaba.com', 'https://www.reddit.com']
+    urls = ['https://www.google.com', 'https://www.ebay.com', 'https://www.alibaba.com']
     start = time.time()
     for url in urls:
         print url
